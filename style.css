@@ -1,0 +1,133 @@
+:root {
+  --col-primary: hsl(25, 76%, 31%);
+  --col-secondary: hsl(43, 74%, 49%);
+  --col-bg-primary: hsla(42, 31%, 94%, 0.5);
+  --col-bg-secondary: hsl(43, 47%, 94%);
+  --input-focus-shadow: 0 0 0 3px rgba(139, 83, 37, 0.1);
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --border-radius: 10px;
+  --text-muted: #999;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  line-height: 1.4;
+  font-family: Arial, sans-serif;
+  background-color: hsl(43, 47%, 94%);
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 8px 12px;
+  font: inherit;
+  border: 1px hsl(43, 47%, 94%);
+  border-radius: var(--border-radius);
+}
+
+input:focus {
+  outline: none;
+  border-color: hsl(25, 76%, 31%);
+}
+
+.btn {
+  background: none;
+  border: none;
+  padding: 8px 16px;
+  font: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary {
+  background-color: hsl(25, 76%, 31%);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: hsl(25, 76%, 25%);
+}
+
+.btn-icon {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px ;
+  background: transparent;
+  border-radius: var(--border-radius);
+}
+
+.card,
+article {
+  padding: 16px;
+  border: 1px solid var(--col-secondary);
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 16px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+}
+
+header nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+header p {
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  margin: 0 0 16px;
+}
+
+main {
+  padding: 32px 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+}
+
+article h3 {
+  margin: 8px 0;
+}
+h2 {
+  color: hsl(25, 76%, 31%);
+}
+
+article p {
+  margin: 4px 0;
+}
