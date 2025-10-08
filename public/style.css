@@ -29,6 +29,10 @@ header {
   border-bottom: 1px solid #cdc9c9;
 }
 
+header img {
+  border-radius: 50%;
+}
+
 header nav {
   display: flex;
   align-items: center;
@@ -118,26 +122,23 @@ input:focus {
   border-radius: var(--border-radius);
 }
 
-
-
 a {
   display: inline-block;
   text-decoration: none;
   color: inherit;
 }
 
-
 img {
   display: block;
   max-width: 100%;
   height: auto;
-  border-radius: 10%;
 }
 
 .book-grids {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 32px;
+  justify-content: center;
 }
 
 .book-card {
@@ -189,10 +190,18 @@ img {
 
 .book-image-container {
   width: 100%;
-  height: 350px;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 15px;
+  border-radius: 9px;
+}
+
+.book-image-container img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 350px;
+  max-height: 350px;
+  object-fit: cover;
+  object-position: 50% 0%;
+  border-radius: 9px;
+  box-shadow: rgba(139, 69, 19, 0.15) 0 2px 8px 0;
 }

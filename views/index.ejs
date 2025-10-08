@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookNook</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./Home.css" />
+  </head>
+  <body>
+    <header>
+      <h1>BookNook</h1>
+      <nav>
+        <a href="/Home">Home</a>
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+        <p>Guest</p>
+        <img
+          class="img"
+          src="https://booknook.abcd.ge/assets/icon.png"
+          alt=""
+        />
+      </nav>
+    </header>
+
+     <main class="container">
+      <h2>Our Book Collection</h2>
+
+      <div class="book-grids">
+        <% books.forEach(book => { %>
+          <article class="book-card">
+            <div class="book-image-container">
+              <a href="/books/<%= book.titleSlug %>">
+                <img src="<%= book.imageUrl %>" alt="<%= book.title %> cover" />
+              </a>
+            </div>
+            <h3><a href="/books/<%= book.titleSlug %>"><%= book.title %></a></h3>
+            <p>by <%= book.author %></p>
+            <p><%= book.genre %> • <%= book.yearPublished %></p>
+            <% if (book.salePrice) { %>
+              <p><s>$<%= book.price.toFixed(2) %></s> $<%= book.salePrice.toFixed(2) %></p>
+            <% } else { %>
+              <p>$<%= book.price.toFixed(2) %></p>
+            <% } %>
+          </article>
+        <% }) %>
+      </div>
+    </main>
+  </body>
+</html>
