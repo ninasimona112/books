@@ -31,23 +31,12 @@ app.get("/books", async function (req, res) {
   res.render("index", { books: allBooks });
 });
 
-app.use(express.static("public"));
-
-
-// მთავარი გვერდი — ყველა წიგნი
-app.get("/books", async (req, res) => {
-  const allBooks = await Book.find();
-  res.render("index", { books: allBooks });
-});
-
 // წიგნის დეტალური გვერდი
 app.get("/books/:titleSlug", async (req, res) => {
   const book = await Book.findOne({ titleSlug: req.params.titleSlug });
   if (!book) return res.status(404).send("Book not found");
   res.render("book", { book });
 });
-
-
 
 // ========================================================
 // MongoDB მონაცემთა ბაზასთან დაკავშირება (ლოკალური ვერსია)

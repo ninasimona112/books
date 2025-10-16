@@ -1,30 +1,175 @@
+@import url(./style.css);
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: leto, Arial, Helvetica, sans-serif;
-  background-color: rgba(244, 241, 234, 0.5);
-  margin: 0;
-  padding: 0;
+ display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+header.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 10px 50px;
+  box-shadow: var(--card-shadow);
+}
+
+.logo {
+  font-family: "Libre Baskerville", serif;
+  font-size: 1.6rem;
+  color: var(--col-primary);
+}
+
+.nav-links a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: var(--col-primary);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--col-secondary);
+}
+
+.guest {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.user-icon {
+  width: 24px;
+  height: 24px;
 }
 
 .container {
   display: flex;
   max-width: 1000px;
-  margin: 20px auto;
-  padding: 20px;
-  gap: 20px;
-  border-radius: 10px;
-  font-family: lato, Arial, Helvetica, sans-serif;
+  margin: 50px auto;
+  gap: 40px;
+  background-color:hsl(43, 47%, 94%);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
 }
-.dunimg img {
-  width: 250px;
-  height: auto;
-  border-radius: 5px;
-  margin-left: 20px;
+
+.book-cover img {
+  width: 280px;
+ 
 }
 
 .book-details {
   flex: 1;
+}
+
+.book-details .title {
+  font-family: "Libre Baskerville", serif;
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.author {
+  color: var(--gray-500);
+  font-style: italic;
+  font-size: 1.1rem;
+   margin: 0.5rem 0;
+}
+
+.info {
+  background-color: #f7f3e9;
+  padding: 10px 15px;
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.summary {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--col-primary);
+}
+
+
+.review-section {
+  margin-top: 2.5rem;
+  padding: 2rem;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+}
+
+.review-header-section h3 {
+  font-family: "Libre Baskerville", serif;
+  font-size: 1.2rem;
+  color: var(--col-primary);
+  margin: 0 0 15px;
+}
+
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+
+.review-card {
+  padding: 1rem;
+  background-color: var(--col-bg-primary);
+  border-radius: var(--border-radius);
+  border-left: 3px solid var(--col-secondary);
+  box-shadow: 0 2px 6px rgba(139, 69, 19, 0.1);
+}
+
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.rating {
+  color: var(--col-secondary);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+
+.review-card q {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.6;
+}
+.login-hint {
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.login-hint a {
+  color: var(--col-primary);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.login-hint a:hover {
+  color: var(--col-secondary);
 }
