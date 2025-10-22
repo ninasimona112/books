@@ -3,11 +3,13 @@ const mongoose = require("mongoose");
 
 const app = express();
 
+// View Engine Setup
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-const bookSchema = mongoose.Schema({
+// Schema Definition
+const bookSchema = new mongoose.Schema({
   title: { type: String, required: true },
   titleSlug: { type: String, required: true, unique: true },
   author: { type: String, required: true },
@@ -21,35 +23,46 @@ const bookSchema = mongoose.Schema({
 
 const Book = mongoose.model("Book", bookSchema);
 
-app.get("/", function (req, res) {
-  res.redirect("/books");
+// Routes
+app.get("/", (req, res) => res.redirect("/books"));
+
+app.get("/books", async (req, res) => {
+  try {
+    const allBooks = await Book.find();
+    console.log("Books found:", allBooks.length);
+    res.render("index", { books: allBooks });
+  } catch (error) {
+    console.error("Error fetching books:", error);
+    res.status(500).send("Server error");
+  }
 });
 
-app.get("/books", async function (req, res) {
-  const allBooks = await Book.find();
-  console.log("Books found:", allBooks.length);
-  res.render("index", { books: allBooks });
-});
-
-// წიგნის დეტალური გვერდი
 app.get("/books/:titleSlug", async (req, res) => {
-  const book = await Book.findOne({ titleSlug: req.params.titleSlug });
-  if (!book) return res.status(404).send("Book not found");
-  res.render("book", { book });
+  try {
+    const book = await Book.findOne({ titleSlug: req.params.titleSlug });
+    if (!book) return res.status(404).send("Book not found");
+    res.render("book", { book });
+  } catch (error) {
+    console.error("Error fetching book:", error);
+    res.status(500).send("Server error");
+  }
 });
 
-// ========================================================
-// MongoDB მონაცემთა ბაზასთან დაკავშირება (ლოკალური ვერსია)
-// ========================================================
+app.get("/login", (req, res) => res.render("login"));
+app.get("/register", (req, res) => res.render("register"));
+
+// ===============================
+// MongoDB Connection (Atlas/Render)
+// ===============================
+const MONGO_URI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/books";
+
 mongoose
-  .connect("mongodb://127.0.0.1:27017/books")
+  .connect(MONGO_URI)
   .then(() => console.log("✅ MongoDB connected successfully"))
   .catch((error) => console.log("❌ Database connection error:", error));
 
-// ========================================================
+// ===============================
 // სერვერის გაშვება
-// ========================================================
-const PORT = 3000;
-app.listen(PORT, () =>
-  console.log(` Server running on http://localhost:${PORT}`)
-);
+// ===============================
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(` Server running on port ${PORT}`));

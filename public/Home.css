@@ -1,0 +1,42 @@
+@import url(./style.css);
+
+/* 🧭 Header & Navbar */
+header.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 10px 50px;
+  box-shadow: var(--card-shadow);
+}
+
+.logo {
+  font-family: "Libre Baskerville", serif;
+  font-size: 1.6rem;
+  color: var(--col-primary);
+}
+
+.nav-links a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: var(--col-primary);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--col-secondary);
+}
+
+.guest {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.user-icon {
+  width: 24px;
+  height: 24px;
+}
