@@ -3,12 +3,12 @@ const mongoose = require("mongoose");
 
 const app = express();
 
-// View Engine Setup
+
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-// Schema Definition
+
 const bookSchema = new mongoose.Schema({
   title: { type: String, required: true },
   titleSlug: { type: String, required: true, unique: true },
@@ -23,7 +23,6 @@ const bookSchema = new mongoose.Schema({
 
 const Book = mongoose.model("Book", bookSchema);
 
-// Routes
 app.get("/", (req, res) => res.redirect("/books"));
 
 app.get("/books", async (req, res) => {
@@ -62,7 +61,7 @@ mongoose
   .catch((error) => console.log("❌ Database connection error:", error));
 
 // ===============================
-// სერვერის გაშვება
+// სერვერის გაშვებაmongoose.connect
 // ===============================
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(` Server running on port ${PORT}`));
