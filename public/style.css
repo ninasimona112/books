@@ -12,6 +12,9 @@
   --text-muted: #999;
   --card-spacing: 1rem;
 }
+* {
+  box-sizing: border-box;
+}
 
 body {
   line-height: 1.4;

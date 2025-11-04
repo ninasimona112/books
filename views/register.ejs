@@ -1,14 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/style.css" />
-    <link rel="stylesheet" href="/page.css" />
   </head>
   <body>
     <%- include("partials/header") %>
-    
+    <div class="conteiner">
+      <div class="form-cont">
+        <h2>Login</h2>
+        <p>Enter your credentials to log in</p>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" />
+
+        <button type="submit">Login</button>
+      </div>
+    </div>
   </body>
 </html>
