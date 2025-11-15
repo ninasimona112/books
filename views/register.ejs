@@ -1,19 +1,54 @@
-  </head>
-  <body>
+<body class="login-page">
     <%- include("partials/header") %>
-    <div class="conteiner">
-      <div class="form-cont">
-        <h2>Login</h2>
-        <p>Enter your credentials to log in</p>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" />
+    <main class="login-wrapper">
+      <section class="login-card">
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" />
+        <h2>Register</h2>
+        <p>Enter your information to create an account</p>
 
-        <button type="submit">Login</button>
-      </div>
-    </div>
+        <form method="POST" action="/register">
+
+          <label for="username">Username *</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="bookworm12"
+            required
+          />
+
+          <label for="email">Email *</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="abc@email.com"
+            required
+          />
+
+          <div class="register-row">
+            <div class="register-col">
+              <label for="password">Password *</label>
+              <input type="password" id="password" name="password" required />
+            </div>
+
+            <div class="register-col">
+              <label for="confirm">Confirm password *</label>
+              <input type="password" id="confirm" name="confirm" required />
+            </div>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Register</button>
+
+        </form>
+
+        <p class="login-helper-text">
+          Already have an account?
+          <a href="/login">Log in</a>
+        </p>
+
+      </section>
+    </main>
   </body>
 </html>

@@ -215,7 +215,87 @@ h3,
 h4 {
   font-family: "Libre Baskerville", serif;
 }
-header h1{
+header h1 {
   margin-left: 10%;
   font-size: 24px;
+}
+body.login-page {
+  background-color: rgba(244, 241, 234, 0.8);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 16px;
+}
+
+.login-card {
+  background-color: #fff;
+  width: 100%;
+  max-width: 380px;
+  padding: 32px 28px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  border: 1px solid #eee;
+}
+
+.login-card h2 {
+  font-size: 24px;
+  color: var(--col-primary);
+  margin-bottom: 8px;
+}
+
+.login-card p {
+  font-size: 14px;
+  margin-bottom: 18px;
+  color: #444;
+}
+
+.login-card label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.login-card input {
+  margin-bottom: 14px;
+}
+
+.login-card button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.login-helper-text {
+  margin-top: 16px;
+  font-size: 12px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.login-helper-text a {
+  color: var(--col-primary);
+  font-weight: 600;
+}
+
+.login-helper-text a:hover {
+  color: var(--col-secondary);
+}
+.register-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.register-col {
+  flex: 1;
+}
+
+.register-col input {
+  margin-bottom: 0;
 }
