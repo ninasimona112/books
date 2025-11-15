@@ -49,7 +49,9 @@ app.get("/books/:titleSlug", async (req, res) => {
     res.status(500).send("Server error");
   }
 });
-
+app.get("/new-book", (req, res) => {
+  res.render("new-book");
+});
 app.get("/login", (req, res) => res.render("login"));
 app.get("/register", (req, res) => res.render("register"));
 
